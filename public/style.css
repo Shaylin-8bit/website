@@ -2,6 +2,7 @@ body {
   --dark: #121212;
   --darkish: #222;
   --light: #ddd;
+  --lightish: #919191;
   
   background-color: var(--dark);
   background-image: url("imgs/background.jpg");
@@ -39,8 +40,8 @@ header {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  border-bottom: 1.2vh solid var(--light);
-  border-top: 1.2vh solid var(--light);
+  border-bottom: 1.2vh solid var(--lightish);
+  border-top: 1.2vh solid var(--lightish);
   background-color: var(--darkish);
   width: 100vw;
 }
@@ -60,9 +61,9 @@ nav {
 }
 
 #nav-drop-button {
-  background-color: var(--light);
-  border-left: 1vh solid var(--light);
-  border-right: 1vh solid var(--light);
+  background-color: var(--lightish);
+  border-left: 1vh solid var(--lightish);
+  border-right: 1vh solid var(--lightish);
   width: 15vh;
 }
 
@@ -75,7 +76,7 @@ nav {
 }
 
 #nav-drop-button img {
-  background-color: var(--light);
+  background-color: var(--lightish);
   height: 3vh;
   width: 10vh;
 }
