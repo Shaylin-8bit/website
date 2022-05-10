@@ -1,8 +1,114 @@
 body {
-  background-color: #131313;
-  color: #ddd;
+  --dark: #121212;
+  --darkish: #222;
+  --light: #ddd;
+  
+  background-color: var(--dark);
+  background-image: url("imgs/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--light);
+  outline: 1px solid yellow;
+  min-height: 100vh;
+  margin: 0px;
+  font-family: Arial, Helvetica;
+  padding-bottom: 20vh;
+}
+
+button {
+  border: 0px;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 header {
-  text-align: center;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#pro-header {
+  font-family: monospace, Helvetica, Arial;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  border-bottom: 1.2vh solid var(--light);
+  border-top: 1.2vh solid var(--light);
+  background-color: var(--darkish);
+  width: 100vw;
+}
+
+.pfp {
+  width: 11vh;
+  height: 11vh;
+  margin: 1vw 3vw;
+  border: 0.5vw solid var(--dark);
+  border-radius: 50%;
+}
+
+
+/* Future dropdown */
+nav {
+  display: none;
+}
+
+#nav-drop-button {
+  background-color: var(--light);
+  border-left: 1vh solid var(--light);
+  border-right: 1vh solid var(--light);
+  width: 15vh;
+}
+
+#nav-drop-button:hover {
+  filter: brightness(120%);
+}
+
+#nav-drop-button:active {
+  filter: brightness(90%);
+}
+
+#nav-drop-button img {
+  background-color: var(--light);
+  height: 3vh;
+  width: 10vh;
+}
+/* --------------- */
+
+
+h1 {
+  padding-top: 5vh;
+  margin: 0px;
+  font-size: 3vw;
+  border-bottom: 2vh solid var(--light);
+  line-spacing: 0vh;
+  text-shadow: 1px 1px 2px var(--dark),
+               2px 2px 2px var(--dark),
+               3px 3px 2px var(--dark);
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  float: right;
+  font-size: 2vh;
+  background-color: var(--dark);
+  opacity: 85%;
+}
+
+.main-box {
+  margin: 5vh auto 0vh auto;
+  width: 90vw;
+  min-height: 50vh;
+  width: 90vw;
+  background-color: var(--darkish);
+  opacity: 95%;
+  border: 1vh solid #0b0b75
 }
