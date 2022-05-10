@@ -111,5 +111,6 @@ footer {
   width: 90vw;
   background-color: var(--darkish);
   opacity: 95%;
-  border: 1vh solid #0b0b75
+  border: 1vh solid #0b0b75;
+  font-size: 3vh;
 }
