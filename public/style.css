@@ -54,40 +54,39 @@ header {
   border-radius: 50%;
 }
 
+#nav-header {
+  display: flex;
+  flex-direction: column;
+}
 
-/* Future dropdown */
 nav {
-  display: none;
+  font-size: 1.5vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-#nav-drop-button {
+nav a {
+  color: var(--dark);
+  text-align: center;
+  padding: 1vh;
+  border: 1px solid var(--dark);
+  border-radius: 5px;
   background-color: var(--lightish);
-  border-left: 1vh solid var(--lightish);
-  border-right: 1vh solid var(--lightish);
-  width: 15vh;
 }
 
-#nav-drop-button:hover {
-  filter: brightness(120%);
+nav a:hover {
+  filter: brightness(125%);
+  cursor: pointer;
 }
 
-#nav-drop-button:active {
-  filter: brightness(90%);
+nav a:active {
+  filter: brightness(80%);
 }
-
-#nav-drop-button img {
-  background-color: var(--lightish);
-  height: 3vh;
-  width: 10vh;
-}
-/* --------------- */
-
 
 h1 {
-  padding-top: 5vh;
-  margin: 0px;
+  margin: auto;
   font-size: 3vw;
-  border-bottom: 2vh solid var(--light);
   line-spacing: 0vh;
   text-shadow: 1px 1px 2px var(--dark),
                2px 2px 2px var(--dark),
