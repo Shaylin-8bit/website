@@ -9,7 +9,7 @@ body {
   --lightish: #919191;
   
   background-color: var(--dark);
-  background-image: url("background.jpg");
+  background-image: url("imgs/background.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

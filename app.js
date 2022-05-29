@@ -1,8 +1,7 @@
 const express = require("express")
 const app = express()
 
-app.use(express.static('./public/styles'));
-app.use(express.static('./public/imgs'));
+app.use(express.static('./public/static'));
 
 app.get(["/", '/home', '/index'], (req, res) => {
   const options = {root: './public'}
