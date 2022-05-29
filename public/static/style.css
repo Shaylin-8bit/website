@@ -98,16 +98,6 @@ h1, h2{
                3px 3px 2px var(--dark);
 }
 
-#mini-bio {
-  padding-top: 2vw;
-  padding-bottom: 2vh;
-}
-
-#mini-bio p {
-  font-size: min(3vw, 3vh);
-  margin: 2vh 5vw;
-}
-
 hr {
   width: calc(100% - 2 * 5vw);
 }

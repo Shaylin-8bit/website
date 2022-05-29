@@ -8,6 +8,11 @@ app.get(["/", '/home', '/index'], (req, res) => {
   res.sendFile('/html/home.html', options);
 });
 
+app.get(["/styles/home.css", "/home/styles/home.css", "/index/styles/home.css"], (req, res) => {
+  const options = {root: './public'}
+  res.sendFile('/styles/home.css', options);
+});
+
 app.get("/contact", (req, res) => {
   const options = {root: './public'}
   res.sendFile('/html/contact.html', options);
