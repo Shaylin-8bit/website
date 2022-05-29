@@ -1,0 +1,5 @@
+# Hmm... This page is meant for bots... If you can read this you might be lost. No worries, just go back, I'm sure that will get you back on track!
+
+User-agent: *
+User-agent: AdsBot-Google
+Disallow: /
