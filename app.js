@@ -38,4 +38,4 @@ app.use((err, req, res, next) => {
   res.status(500).send('500: Oh no! Something\'s gone wrong...')
 });
 
-app.listen(process.env.PORT || 3000, () => console.log("Server is running..."));
+app.listen(process.env.PORT || 3000, () => console.log('Server is running...'));
