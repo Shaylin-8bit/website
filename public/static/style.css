@@ -124,7 +124,7 @@ footer {
   background-color: var(--darkish);
   opacity: 95%;
   border: 1vh solid #0b0b75;
-  font-size: 3vh;
+  font-size: min(3vh, 3vh);
 }
 
 #projects {
@@ -257,8 +257,4 @@ footer {
   font-size: 2vw;
   width: 80%;
   margin: 0px auto;
-}
-
-#contact ul {
-  padding: auto; 
 }

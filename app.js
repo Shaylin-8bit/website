@@ -4,7 +4,7 @@ const parser = require('./components/parser.js');
 
 app.use(express.static('public/static'));
 
-app.get('/', (req, res) => {
+app.get(['/', '/index'], (req, res) => {
   parser('home').then(result => {
     res.send(result);
   });

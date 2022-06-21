@@ -1,0 +1,9 @@
+#bio {
+  padding-top: 2vw;
+  padding-bottom: 2vh;
+}
+
+#bio p {
+  font-size: min(3vw, 3vh);
+  margin: 2vh 5vw;
+}
