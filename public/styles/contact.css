@@ -1,12 +1,49 @@
-#contact ul {
+/*body {
+  --light: #ddd;
+  --lightish: #919191;
+  --dark: #121212;
+  --darkish: #222;
+}*/
+
+#contact table {
+  font-size: 2vw;
   padding: auto;
-  font-size: max(2vh, 2vh);
   padding: 2vh 5vw;
   margin: auto;
   list-style: none;
 }
 
-li {
-  text-align: center;
+#contact ul tr {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
   margin-bottom: 2vh;
 }
+
+.name {
+  background-color: var(--lightish);
+  text-align: center;
+  border-bottom: 0.5vh solid var(--light);
+  opacity: 100%;
+}
+
+.name a {
+  width: 100%;
+  padding: 0 2vw;
+  text-decoration: none;
+  color: var(--darkish);
+}
+
+.spacer {
+  padding: 0 1vw;
+}
+
+@media screen and (orientation: portrait) and (max-device-width: 500px) {
+  .spacer, .link {
+    display: none;
+  }
+  .name a {
+    font-size: 2vh;
+    padding: 0 20vw;
+  }
+} 

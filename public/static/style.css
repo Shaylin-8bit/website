@@ -77,6 +77,15 @@ nav a {
   border: 1px solid var(--dark);
   border-radius: 5px;
   background-color: var(--lightish);
+  text-decoration: none;
+}
+
+@media screen and (orientation: portrait) and (max-device-width: 500px) {
+  nav a {
+    width: 33%;
+    font-size: 150%;
+    text-align: center;
+  }
 }
 
 nav a:hover {
