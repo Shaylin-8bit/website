@@ -173,7 +173,7 @@ footer {
   height: 0%;
 }
 
-#inner-fancy-dis .proj-box {
+.proj-box {
   position: relative;
   background-color: var(--darkish);
   border: var(--b) solid var(--lightish);

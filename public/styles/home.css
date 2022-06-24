@@ -7,3 +7,16 @@
   font-size: min(3vw, 3vh);
   margin: 2vh 5vw;
 }
+
+#bot-left-box {
+  background-color: black;
+}
+
+#links {
+  background-color: var(--light);
+  color: var(--dark);
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  display: none;
+}
