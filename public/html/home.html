@@ -12,22 +12,8 @@
   <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-      $(window).on("load", () => {
-        const box3 = $("#bot-left-box");
-        
-        box3.on("click", () => {
-          window.open("https://github.com/Shaylin-8bit/website", "_blank")
-        });
-        box3.hover(
-          () => {
-            $("#links").css("display", "inline");
-            $("#links").html("https://github.com/Shaylin-8bit/website");
-        }, 
-          () => {
-            $("#links").css("display", "none");
-            $("#links").html("");
-        });
-        
+      $(window).on('load', () => {  
+        console.log('connected');
       });
     </script>
     <header>
@@ -61,32 +47,58 @@
         <hr>
         <div id="projects-listing">
           <div id="fancy-dis">
-            
-            <div id="mid-box" class="proj-button">
-              <div class="proj-content bottom"> Project Name </div>
-            </div>
+
+            <!--mid-->
+            <a href="#" id="mid-box" class="proj-button">
+              <div class="proj-content bottom">
+                <span class="top-text">Project</span>
+                <span class="bottom-text">Name</span>
+              </div>
+            </a>
             
             <div id="inner-fancy-dis">
-              <div id="top-left-box" class="proj-box proj-button">
-                <div class="proj-content top">Project Name</div>
+
+              <!--one-->
+              <a href="https://github.com/Shaylin-8bit/Bacon-Bit" id="top-left-box" class="proj-box proj-button">
+                <div class="proj-content top">
+                  <span class="top-text">Bacon</span>
+                  <span class="bottom-text">Bit</span>
+                </div>
                 <div class="mask" id="top-left-mask"></div>
-              </div>
-              <!---->
-              <div id="top-right-box" class="proj-box proj-button">
-                <div class="proj-content top">Project Name</div>
+                <div class="project-image" id="top-left-image"></div>
+              </daiv>
+                
+              <!--two-->
+              <a href="https://github.com/Shaylin-8bit/blorb" id="top-right-box" class="proj-box proj-button">
+                <div class="proj-content top">
+                  <span class="top-text">Blorb</span>
+                  <span class="bottom-text">Discord Bot</span>
+                </div>
                 <div class="mask" id="top-right-mask"></div>
-              </div>
-              <!---->
-              <div id="bot-left-box" class="proj-box proj-button">
-                <div class="mask" id="bot-left-mask"></div>
-                <div class="proj-content bottom">Portfolio Site</div>
-              </div>
+                <div class="project-image" id="top-right-image"></div>
+              </a>
+                
+              <!--three-->
+              <a href="https://github.com/Shaylin-8bit/website" target="_blank" id="bot-left-box" class="proj-box proj-button">
+                <div class="mask" id="bot-left-mask">
+                </div>
+                <div class="project-image" id="bot-left-image"></div>
+                <div class="proj-content bottom">
+                  <span class="top-text">Portfolio</span>
+                  <span class="bottom-text">Site</span>
+                </div>
+              </a>
               
-              <!---->
-              <div class="proj-box proj-button" id="bot-right-box">
-                <div class="mask" id="bot-right-mask"></div>
-                <div class="proj-content bottom">Project Name</div>
-              </div>
+              <!--four-->
+              <a href="https://projectnu.org/" target="_blank" class="proj-box proj-button" id="bot-right-box">
+                <div class="mask" id="bot-right-mask">
+                </div>
+                <div class="project-image" id="bot-right-image"></div>
+                <div class="proj-content bottom">
+                  <span class="top-text">Project</span>
+                  <span class="bottom-text">Nu</span>
+                </div>
+              </a>
               
             </div>
           </div>
