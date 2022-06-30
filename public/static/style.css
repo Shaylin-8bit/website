@@ -7,6 +7,7 @@ body {
   --darkish: #222;
   --light: #ddd;
   --lightish: #919191;
+  --shadow: #5a5a5a;
   
   background-color: var(--dark);
   background-image: url("imgs/background.jpg");
