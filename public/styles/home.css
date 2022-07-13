@@ -33,7 +33,6 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 0 1pt var(--lightish);
 }
 
 .top {
@@ -44,6 +43,10 @@
 .bottom {
   border-radius: 0% 0% 10% 10%;
   bottom: 0px;
+}
+
+.middle {
+  top: 25%;
 }
 
 .proj-button {
