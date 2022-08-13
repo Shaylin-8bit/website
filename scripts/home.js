@@ -27,9 +27,9 @@ $(document).ready(function() {
         const click = opacity > .5 ? 'all' : 'none'
 
         $('#header-pfp-wrapper').css('opacity', opacity);
-        $('#header-pfp-wrapper').css('pointer-events', 'none');
+        $('#header-pfp-wrapper').css('pointer-events', click);
         $('#header-nav').css('opacity', opacity);
-        $('#header-nav').css('pointer-events', 'none');
+        $('#header-nav').css('pointer-events', click);
         
     };
 
