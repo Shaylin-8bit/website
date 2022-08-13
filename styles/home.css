@@ -133,7 +133,7 @@ header {
 #main-content {
     flex-grow: 1;
     overflow: scroll;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
 }
 
 
