@@ -30,6 +30,13 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h1 {
+    text-shadow: 
+        2px 1px var(--dark),
+        4px 2px var(--dark)
+    ;
+}
+
 p {
     text-shadow: 2px 1px var(--darkish);
 }
@@ -104,7 +111,7 @@ header {
     flex-direction: row;
     justify-content: center;
     height: var(--header-height);
-    background-color: rgba(12, 12, 12, .8);
+    background-color: rgba(12, 12, 12, .3);
 }
 
 .header-wrapper {
@@ -154,7 +161,7 @@ header {
 
 #mini-bio {
     text-align: center;
-    background-color: rgba(12, 12, 12, var(--background-opacity));
+    background-color: rgba(12, 12, 12, .3);
 }
 
 #mini-bio p {
@@ -252,19 +259,15 @@ blockquote .quote {
 
 /* About Me / Third Section */
 
-#main-bio {
-    background-color: rgba(12, 12, 12, .8);
-}
-
 #main-bio .paragraph-wrapper {
     height: 80%;
-    position: relative;
+    margin: 10% auto;
+    overflow: hidden;
 }
 
 #main-bio-inner-wrapper {
-    position: absolute;
-    bottom: 0px;
-    transform: translateY(-50%);
+    overflow: scroll;
+    height: 80%;
 }
 
 #main-bio h2 {
@@ -283,19 +286,37 @@ blockquote .quote {
 
 /* Contact / Fourth Section */
 
+#outer-contact-wrapper {
+    margin: 0% auto;
+    height: 100%;
+    width: 60%;
+    position: relative;
+}
+
+#contact .paragraph-wrapper {
+    width: 100%;
+    height: 40%;
+    position: absolute;
+    bottom: 0px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 #contact-wrapper {
     width: 50%;
-    height: 40%;
+    height: 80%;
     margin: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .contact-anchor {
-    max-width: 100%;
-    width: 100%;
+    max-width: 45%;
+    width: 45%;
     height: 20%;
 }
 
@@ -303,6 +324,10 @@ blockquote .quote {
     max-width: 100%;
     width: 100%;
     height: 100%;
+}
+
+#contact-wrapper .link-button .text {
+    font-size: max(1vh, 1vw);
 }
 
 
@@ -398,17 +423,38 @@ blockquote .quote {
 
    .paragraph-wrapper {
         width: 90%;
-        margin: 5%;
+        margin: 5% auto;
+    }
+    
+    #outer-contact-wrapper {
+        width: 90%;
+        margin: auto;
+    }
+
+    #outer-contact-wrapper .paragraph-wrapper h2 {
+        margin: 0px auto;
+    }
+
+    #contact-wrapper { 
+        height: 80%;
+        width: 100%;
+        margin: 0px;
+    }
+
+    .contact-anchor {
+        margin: auto;
+        max-width: 90%;
+        width: 90%;
+        height: 25%;
+    }
+
+    #contact-wrapper .contact-anchor .link-button .text {
+        font-size: max(2vh, 2vw);
     }
 
     #main-bio-inner-wrapper {
         position: static;
         transform: none;
-    }
-
-    #contact-wrapper {
-        width: 80%;
-        height: 40%;
     }
 
     body {
