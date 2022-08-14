@@ -369,10 +369,6 @@ blockquote .quote {
         height: var(--header-height);
     }
 
-    #main-content {
-        scroll-snap-type: y mandatory;
-    }
-
     #mini-bio p {
         max-width: 90%;
     }
