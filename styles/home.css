@@ -232,7 +232,7 @@ blockquote .quote {
 /* Projects / Second Section */
 
 #projects-wrapper {
-    width: 70%;
+    width: 61.5%;
     height: 40%;
     margin: auto;
     margin-top: 10%;
@@ -258,9 +258,9 @@ blockquote .quote {
 }
 
 .tools-list-wrapper {
-    height: 9%;
-    width: 68.5%;
-    max-width: 80vw;
+    height: 11%;
+    width: 60%;
+    max-width: 90vw;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -268,6 +268,7 @@ blockquote .quote {
     background-color: var(--dark2);
     border: 1px solid var(--darkish);
     border-radius: 5%;
+    padding: 1% 0%;
 }
 
 .tools-list {
@@ -428,11 +429,9 @@ blockquote .quote {
     }
 
     #projects-wrapper {
-        width: 90%;
+        width: 94.5%;
         height: 70%;
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-top: auto;
+        margin: auto;
         overflow: hidden;
     } 
 
