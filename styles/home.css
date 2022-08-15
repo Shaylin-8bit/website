@@ -78,7 +78,6 @@ p {
 
 h2 {
     margin: auto;
-    width: 30%;
     text-align: center;
 }
 
@@ -136,7 +135,6 @@ h2 {
 }
 
 #header-and-main-content {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
@@ -235,8 +233,9 @@ blockquote .quote {
 
 #projects-wrapper {
     width: 70%;
-    height: 70%;
+    height: 40%;
     margin: auto;
+    margin-top: 10%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -244,7 +243,7 @@ blockquote .quote {
 
 .project-wrapper {
     width: 50%;
-    height: 33%;
+    height: 45%;
     position: relative;
 }
 
@@ -401,20 +400,17 @@ blockquote .quote {
 #navigation-content {
     overflow: hidden;
     width: 0%;
+    max-width: 50vw;
     height: 100%;
     float: left;
+    flex: 0 0 auto;
     z-index: 5;
     background-color: var(--dark);
     border: 1px solid #757575;
 }
 
 @media screen and (orientation: portrait) and (max-device-width: 500px) {
-    
-    #header-pfp-wrapper {
-        display: none;
-    }
-    
-    #navigation-button-wrapper { 
+    #central-header-wrapper {
         display: none;
     }
 
@@ -436,23 +432,24 @@ blockquote .quote {
         height: 70%;
         margin-left: 5%;
         margin-right: 5%;
+        margin-top: auto;
         overflow: hidden;
-    }
+    } 
 
     .project-wrapper {
         width: 100%;
         height: 19%;
-    }
+    } 
 
     .tools-list-wrapper {
         height: 13%;
-        width: 85%;
-        max-width: 100vw;
-    }
+        width: 95%;
+    }  
 
     .tool-wrapper {
         height: 50%;
-    }
+        max-width: 20%;
+    } 
 
    .paragraph-wrapper {
         width: 90%;

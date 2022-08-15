@@ -26,6 +26,7 @@ $(document).ready(function() {
         const line1 = $('#navigation-button-line1');
         const line2 = $('#navigation-button-line2');
         const contn = $('#navigation-content');
+        
         const close = contn.width() > 0;
 
         contn.animate({width: close ? '0vw' : '50vw'});
@@ -39,7 +40,8 @@ $(document).ready(function() {
                 {
                     'width': '100%',
                     'height': '100%',
-                    'margin': '0%'
+                    'margin-left': '0%',
+                    'margin-right': '0%'
                 },
                 150
             );

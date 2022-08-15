@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title> Malakai C </title>
+        <title> <%= name %> </title>
         <link rel="stylesheet" type="text/css" href="/styles/home.css">
 
         <script src="/scripts/jquery-3.6.0.min.js"></script>
@@ -52,20 +52,20 @@
                 <div id="main-content">
                     <section id="mini-bio" class="main-section">
                         <img src="/images/pfp.png" alt="PFP">
-                        <h1>Malakai "Shaylin" C.</h1>
+                        <h1><%= name %></h1>
                         <div class="paragraph-wrapper">
                             <p>
-                                Self taught computer programmer and full stack web developer, with a passion for expanding my knowledge and applying it.
+                                <%= miniBio %>
                             </p>
                         </div>
 
                         <div class="paragraph-wrapper">
                             <blockquote>
                                 <p class="quote">
-                                    “Happy is the man that findeth wisdom, and the man that getteth understanding.”
+                                    <%= quote.content %>
                                 </p>
                                 <p class="quote">
-                                    Proverbs 3:13 KJV
+                                    <%= quote.source %>
                                 </p>
                             </blockquote>
                             
@@ -108,28 +108,22 @@
                                 <div class="project">Project 4</div>
                             </div>
                         </div>
-
+                        
                         <div class="tools-list-wrapper">
                             <h2> Languages </h2>
                             <div class="tools-list">
-                                <img class="tool-wrapper" src="/images/c.png" alt="C" title="C">
-                                <img class="tool-wrapper" src="/images/cpp.png" alt="C++" title="C++">
-                                <img class="tool-wrapper" src="/images/py.png" alt="Python 3" title="Python 3">
-                                <img class="tool-wrapper" src="/images/html.png" alt="HTML 5" title="HTML 5">
-                                <img class="tool-wrapper" src="/images/css.png" alt="CSS 3" title="CSS 3">
-                                <img class="tool-wrapper" src="/images/js.png" alt="JavaScript" title="JavaScript">
+                                <% for (let i of languages) { %>
+                                    <img class="tool-wrapper" src="/images/<%= i %>.png" alt="<%= i %>" title="<%= i %>">
+                                <% } %>
                             </div>
                         </div>
 
                         <div class="tools-list-wrapper">
                             <h2> Tools </h2>
                             <div class="tools-list">
-                                <img class="tool-wrapper" src="/images/vsc.png" alt="VSCode" title="VSCode">
-                                <img class="tool-wrapper" src="/images/git.png" alt="Git" title="Git">
-                                <img class="tool-wrapper" src="/images/github.png" alt="Github" title="Github">
-                                <img class="tool-wrapper" src="/images/node.png" alt="Node.js" title="Node.js">
-                                <img class="tool-wrapper" src="/images/express.png" alt="Express.js" title="Express.js">
-                                <img class="tool-wrapper" src="/images/jquery.png" alt="JQuery" title="JQuery">
+                                <% for (let i of tools) { %>
+                                    <img class="tool-wrapper" src="/images/<%= i %>.png" alt="<%= i %>" title="<%= i %>">
+                                <% } %>
                             </div>
                         </div>
 
@@ -139,21 +133,9 @@
                         <div class="paragraph-wrapper">
                             <h2> About Me </h2>
                             <div id="main-bio-inner-wrapper">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p> 
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p> 
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p> 
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p> 
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p> 
+                                <% for (let i of bio) { %>
+                                    <p> <%= i %> </p>  
+                                <% } %>
                             </div>
                         </div>
 
