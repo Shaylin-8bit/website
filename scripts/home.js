@@ -1,17 +1,3 @@
-const openNavigationContent = () => {
-    $('#navigation-content').animate({width: '50vw'});
-    $('#navigation-button-line1').animate({top: '18%'});
-    $('#navigation-button-line2').animate({top: '-18%'});
-    $('#navigation-button').attr('onclick', 'closeNavigationContent()');
-}
-
-const closeNavigationContent = () => {
-    $('#navigation-content').animate({width: '0vw'});
-    $('#navigation-button-line1').animate({top: '0%'});
-    $('#navigation-button-line2').animate({top: '0%'});
-    $('#navigation-button').attr('onclick', 'openNavigationContent()');
-}
-
 const scrollToId = (targetId) => {
     const container = $('#main-content');
     const target = $(`#${targetId}`);
@@ -35,4 +21,38 @@ $(document).ready(function() {
 
     checkMainSection();
     $('#main-content').scroll(checkMainSection);
+
+    $('#navigation-button').click(function() {
+        const line1 = $('#navigation-button-line1');
+        const line2 = $('#navigation-button-line2');
+        const contn = $('#navigation-content');
+        const close = contn.width() > 0;
+
+        contn.animate({width: close ? '0vw' : '50vw'});
+        line1.animate({top:   close ? '0%'  : '17%' });
+        line2.animate({top:   close ? '0%'  : '-17%'});
+    });
+
+    $('.project').hover(
+        function() {
+            $(this).animate(
+                {
+                    'width': '100%',
+                    'height': '100%',
+                    'margin': '0%'
+                },
+                150
+            );
+        },
+        function() {
+            $(this).animate(
+                {
+                    'width': '95%',
+                    'height': '95%',
+                    'margin': '2.5%'
+                },
+                150
+            );
+        }
+    );
 });
