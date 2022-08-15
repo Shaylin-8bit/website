@@ -18,7 +18,8 @@ router.get('/', (req, res) => {
             'Python 3',
             'HTML 5',
             'CSS 3',
-            'JavaScript'
+            'JavaScript',
+            'EJS'
         ],
         tools: [
             'VSCode',
