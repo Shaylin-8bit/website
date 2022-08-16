@@ -25,9 +25,9 @@ const startServer = async function() {
 	});
 
 	console.log('Setting static files...');
-	app.use('/styles', express.static(path.join(__dirname, 'styles')));
-	app.use('/scripts', express.static(path.join(__dirname, 'scripts')));
-	app.use('/images', express.static(path.join(__dirname, 'images')));
+	app.use('/styles',  express.static(path.join(__dirname, 'static/styles' )));
+	app.use('/scripts', express.static(path.join(__dirname, 'static/scripts')));
+	app.use('/images',  express.static(path.join(__dirname, 'static/images' )));
     
 	console.log('Setting top level routes...');
 	app.get('/', (req, res) => res.redirect('/home'));
