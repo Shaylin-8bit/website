@@ -1,5 +1,6 @@
 const {Client} = require('pg');
 const fs = require('node:fs');
+require('dotenv').config();
 
 const getClient = async (client) => {
     const db = new Client({
@@ -15,6 +16,7 @@ const getClient = async (client) => {
 }
 
 const getDatabase = (app) => {
+    console.log('Building database object...');
     const DBObject = {};
     const actionDir = './database';
     const actionFiles = fs.readdirSync(actionDir).filter(file => file.endsWith('.js'));

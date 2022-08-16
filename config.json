@@ -1,0 +1,36 @@
+{
+    "database": {
+        "tables": {
+            "projects": [
+                {
+                    "name": "id",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "JSON",
+                    "type": "TEXT"
+                }
+            ],
+            "articles": [
+                {
+                    "name": "id",
+                    "type": "INTEGER"
+                },
+                {
+                    "name": "JSON",
+                    "type": "TEXT"
+                }
+            ],
+            "config":   [
+                {
+                    "name": "var",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "val",
+                    "type": "TEXT"
+                }
+            ]
+        }
+    }
+}

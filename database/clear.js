@@ -1,5 +1,10 @@
-const execute = async(client, database) => {
-    const sql = 'drop SCHEMA public CASCADE';
+const execute = async(app, database) => {
+    const sql = `
+        drop SCHEMA public CASCADE;
+        CREATE SCHEMA public;
+        GRANT ALL ON SCHEMA public TO postgres;
+        GRANT ALL ON SCHEMA public TO public;
+    `;
     const res = await database.query(sql);
     return res;
 };
