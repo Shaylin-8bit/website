@@ -18,9 +18,11 @@ const startServer = async function() {
 	
 	app.set('view engine', 'ejs');
 
-	console.log('Setting logs...');
+	console.log('Setting sub middleware...');
 	app.use('/', (req, res, next) => {
-		console.log(req);
+		const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+		console.log(`${ip.split(':')[3]} requested ${req.path}`);
+		req.app = app;
 		next();
 	});
 
