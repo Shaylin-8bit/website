@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Admin Login</title>
+    </head>
+
+    <body>
+        <h1> Login </h1>
+        <% if (message) { %>
+           <h2> <%= message %> </h2>
+        <% } %>
+        <form action="/admin/login" method="post">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </body>
+</html>

@@ -22,6 +22,7 @@ const getDatabase = (app) => {
     const actionFiles = fs.readdirSync(actionDir).filter(file => file.endsWith('.js'));
 
     for (const file of actionFiles) {
+        console.log(`  Method "${file}"`);
 	    const execute = require(`.${actionDir}/${file}`);
         const callback = async (...args) => {
             const DB = await getClient();

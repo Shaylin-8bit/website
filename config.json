@@ -4,7 +4,7 @@
             "projects": [
                 {
                     "name": "id",
-                    "type": "INTEGER"
+                    "type": "INTEGER PRIMARY KEY"
                 },
                 {
                     "name": "JSON",
@@ -14,7 +14,7 @@
             "articles": [
                 {
                     "name": "id",
-                    "type": "INTEGER"
+                    "type": "INTEGER PRIMARY KEY"
                 },
                 {
                     "name": "JSON",
@@ -24,7 +24,7 @@
             "config":   [
                 {
                     "name": "var",
-                    "type": "TEXT"
+                    "type": "TEXT PRIMARY KEY NOT NULL"
                 },
                 {
                     "name": "val",

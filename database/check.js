@@ -1,3 +1,5 @@
+const bcrypt = require('bcrypt');
+
 const execute = async (app, database) => {
     console.log('  Checking database...');
     for (let table in app.config.database.tables) {
@@ -17,14 +19,12 @@ const execute = async (app, database) => {
         if (exists) continue;
 
         console.log(`    Creating table "${table}"`);
-        let createSql = `
-            CREATE TABLE ${table} (
-                ${app.config.database.tables[table].map(x => `${x.name} ${x.type}`).join(',')}
-            );
-        `;
+        const createSql = `CREATE TABLE ${table} (\n\t${app.config.database.tables[table].map(x => `${x.name} ${x.type}`).join(',\n\t')}\n);`;
 
         await database.query(createSql);
     }
+    const password = await bcrypt.hash('1234', 10);
+    await database.query(`INSERT INTO config (var, val) VALUES ('password', '${password}');`);
 };
 
 module.exports = execute;
