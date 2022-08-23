@@ -19,25 +19,25 @@
                 {
                     "chck": "id = '0'",
                     "cols": ["id", "content"],
-                    "vals": ["0", "{\"name\": \"Bacon Bit\", \"link\": \"https://github.com/Shaylin-8bit/Bacon-Bit\"}"]
+                    "vals": ["0", "{\"name\": \"Bacon Bit\", \"link\": \"https://github.com/Shaylin-8bit/Bacon-Bit\", \"image\": \"C.png\"}"]
                 },
 
                 {
                     "chck": "id = '1'",
                     "cols": ["id", "content"],
-                    "vals": ["1", "{\"name\": \"Life\", \"link\": \"https://github.com/Shaylin-8bit/Conways-Game-of-Life\"}"]
+                    "vals": ["1", "{\"name\": \"Conway's Life\", \"link\": \"https://github.com/Shaylin-8bit/Conways-Game-of-Life\", \"image\": \"Raylib.png\"}"]
                 },
 
                 {
                     "chck": "id = '2'",
                     "cols": ["id", "content"],
-                    "vals": ["2", "{\"name\": \"Website\", \"link\": \"https://github.com/Shaylin-8bit/website/tree/new-theme\"}"]
+                    "vals": ["2", "{\"name\": \"Potfolio Website\", \"link\": \"https://github.com/Shaylin-8bit/website/tree/new-theme\", \"image\": \"Node.js.png\"}"]
                 },
 
                 {
                     "chck": "id = '3'",
                     "cols": ["id", "content"],
-                    "vals": ["3", "{\"name\": \"PN Bot\", \"link\": \"https://github.com/Shaylin-8bit/ProjectNU-Bot\"}"]
+                    "vals": ["3", "{\"name\": \"PN Discord Bot\", \"link\": \"https://github.com/Shaylin-8bit/ProjectNU-Bot\", \"image\": \"Project Nu.png\"}"]
                 }
             ]
         },

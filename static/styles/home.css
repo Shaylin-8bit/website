@@ -225,9 +225,23 @@ blockquote .quote {
     opacity: var(--text-box-opacity);
 }
 
-.project {
-    font-size: 1vw;
-    margin-bottom: 0;
+.project h3 {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    margin: 0%;
+    width: 100%;
+    text-align: center;
+    font-size: min(2vw, 2vh);
+}
+
+.project img {
+    position: relative;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    width: min(10vw, 10vh);
+    height: min(10vw, 10vh);
 }
 
 .tools-list-wrapper {
