@@ -25,7 +25,7 @@
                 {
                     "chck": "id = '1'",
                     "cols": ["id", "content"],
-                    "vals": ["1", "{\"name\": \"Conway's Life\", \"link\": \"https://github.com/Shaylin-8bit/Conways-Game-of-Life\", \"image\": \"Raylib.png\"}"]
+                    "vals": ["1", "{\"name\": \"Game of Life\", \"link\": \"https://github.com/Shaylin-8bit/Conways-Game-of-Life\", \"image\": \"Raylib.png\"}"]
                 },
 
                 {
