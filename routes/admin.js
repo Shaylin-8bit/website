@@ -27,7 +27,7 @@ router.post('/password', async (req, res) => {
         const auth = await bcrypt.compare(req.body.currentPassword, currentHash);
         
         if (auth) {
-            if (req.body.newPassword !== req.body.confirm) return res.render('password', {message: 'Passwords do no match!'});
+            if (req.body.newPassword !== req.body.confirm) return res.render('password', {message: 'Passwords do not match!'});
             
             const newHash = await bcrypt.hash(req.body.newPassword, 10);
             await req.app.database.query(`UPDATE config SET val = '${newHash}' WHERE var = 'password';`);

@@ -1,34 +1,65 @@
 {
     "database": {
-        "tables": {
-            "projects": [
+        "projects": {
+            "columns": [
                 {
-                    "name": "id",
-                    "type": "INTEGER PRIMARY KEY"
+                    "name":  "id",
+                    "type":  "INTEGER",
+                    "limit": "PRIMARY KEY NOT NULL"
                 },
+
                 {
-                    "name": "JSON",
-                    "type": "TEXT"
+                    "name":  "content",
+                    "type":  "TEXT",
+                    "limit": "NOT NULL"
                 }
             ],
-            "articles": [
+
+            "rows": [
+
+            ]
+        },
+
+        "posts": {
+            "columns": [
                 {
-                    "name": "id",
-                    "type": "INTEGER PRIMARY KEY"
+                    "name":  "id",
+                    "type":  "INTEGER",
+                    "limit": "PRIMARY KEY NOT NULL"
                 },
+
                 {
-                    "name": "JSON",
-                    "type": "TEXT"
+                    "name":  "content",
+                    "type":  "TEXT",
+                    "limit": "NOT NULL"
                 }
             ],
-            "config":   [
+
+            "rows": [
+
+            ]
+        },
+
+        "config": {
+            "columns": [
                 {
-                    "name": "var",
-                    "type": "TEXT PRIMARY KEY NOT NULL"
+                    "name":  "var",
+                    "type":  "TEXT",
+                    "limit": "PRIMARY KEY NOT NULL"
                 },
+
                 {
-                    "name": "val",
-                    "type": "TEXT"
+                    "name":  "val",
+                    "type":  "TEXT",
+                    "limit": ""
+                }
+            ],
+
+            "rows": [
+                {
+                    "chck": "var = 'password'",
+                    "cols": ["var", "val"],
+                    "vals": ["password", "$2b$10$hnKRinK7S7m3R4XWJOAti.S.H5A/FrXhKWO6SaKVAnMZCNegfkkaS"]
                 }
             ]
         }

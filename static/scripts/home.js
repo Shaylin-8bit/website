@@ -29,9 +29,9 @@ $(document).ready(function() {
         
         const close = contn.width() > 0;
 
-        contn.animate({width: close ? '0vw' : '50vw'});
-        line1.animate({top:   close ? '0%'  : '17%' });
-        line2.animate({top:   close ? '0%'  : '-17%'});
+        contn.animate({width: close ? '0vw' :  '100vw'}, 750);
+        line1.animate({top:   close ? '0%'  :  '17%'  }, 750);
+        line2.animate({top:   close ? '0%'  : '-17%'  }, 750);
     });
 
     $('.project').hover(
