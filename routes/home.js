@@ -19,6 +19,7 @@ router.get('/', (req, res) => {
             'HTML 5',
             'CSS 3',
             'JavaScript',
+            'SQL',
             'EJS'
         ],
         tools: [
@@ -28,6 +29,7 @@ router.get('/', (req, res) => {
             'Node.js',
             'Express.js',
             'JQuery',
+            'Postgresql',
             'Heroku',
             'Raylib'
         ],
