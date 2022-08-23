@@ -20,7 +20,20 @@ $(document).ready(function() {
     };
 
     checkMainSection();
+
     $('#main-content').scroll(checkMainSection);
+
+    const projects = $('#projects-wrapper').first().children();
+    for (let i = 0; i < projects.length; i++) {
+        $.getJSON(`/projects/${i}`).then(
+            function(res) {
+                const child = $($(projects[i]).children().first());
+                child.html(`<h3>${res.name}</h3>`);
+                child.attr("href", res.link);
+            },
+            function(e) {console.log('error');}
+        );
+    }
 
     $('#navigation-button').click(function() {
         const line1 = $('#navigation-button-line1');

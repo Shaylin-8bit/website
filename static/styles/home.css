@@ -37,6 +37,10 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    text-align: center;
+}
+
 .main-section {
     height: 100%;
     scroll-snap-align: center;
@@ -196,7 +200,7 @@ blockquote .quote {
     width: 61.5%;
     height: 40%;
     margin: auto;
-    margin-top: 1%;
+    margin-top: 7%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -209,6 +213,9 @@ blockquote .quote {
 }
 
 .project {
+    display: block;
+    color: var(--light);
+    text-decoration: none;
     width: 95%;
     height: 95%;
     margin: 2.5%;
@@ -216,6 +223,11 @@ blockquote .quote {
     border: 1px solid var(--darkish);
     border-radius: 5%;
     opacity: var(--text-box-opacity);
+}
+
+.project {
+    font-size: 1vw;
+    margin-bottom: 0;
 }
 
 .tools-list-wrapper {
@@ -387,10 +399,6 @@ blockquote .quote {
 
     #mini-bio p {
         max-width: 90%;
-    }
-
-    #projects-header {
-        display: none;
     }
 
     #projects-wrapper {
