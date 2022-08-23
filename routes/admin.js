@@ -40,6 +40,15 @@ router.post('/password', async (req, res) => {
     }
 });
 
+router.get('/projects', (req, res) => {
+    res.render('projects');
+});
+
+router.post('/newProject', (req, res) => {
+    console.log(req.body.content);
+    res.redirect('/admin/projects');
+});
+
 router.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/login');
