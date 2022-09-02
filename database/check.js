@@ -54,7 +54,7 @@ const execute = async (app, database) => {
             console.log(`        "${row.chck}" result: ${res.rows.length ? "exists" : "missing"}`);
             if (!res.rows.length) {
                 console.log(`        Creating row for "${row.chck}"`);
-                sql = `INSERT INTO ${table} (${row.cols}) VALUES (${row.vals.map(x => `'${x}'`)});`;
+                sql = `INSERT INTO ${table} (${row.cols}) VALUES (${row.vals.map(x => `'${typeof(x) === 'object' ? JSON.stringify(x) : x}'`)});`;
 
                 try {
                     res = await database.query(sql);
