@@ -2,17 +2,15 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    const name    = await req.app.database.query(`SELECT val FROM config WHERE var = 'name' LIMIT 1;`);
-    const bio     = await req.app.database.query(`SELECT val FROM config WHERE var = 'bio' LIMIT 1;`);
-    const miniBio = await req.app.database.query(`SELECT val FROM config WHERE var = 'miniBio' LIMIT 1;`);
-    const quote   = await req.app.database.query(`SELECT val FROM config WHERE var = 'quote' LIMIT 1;`);
-
-    console.log(name.rows);
+    const name    = await req.app.database.query('config', {_id: 'name'});
+    const bio     = await req.app.database.query('config', {_id: 'bio'});
+    const miniBio = await req.app.database.query('config', {_id: 'miniBio'});
+    const quote   = await req.app.database.query('config', {_id: 'quote'});
 
     const content = {
-        name: name.rows[0].val,
-        miniBio: miniBio.rows[0].val,
-        quote: JSON.parse(quote.rows[0].val),
+        name: name[0].val,
+        miniBio: miniBio[0].val,
+        quote: quote[0].val,
         projects: [
 
         ],
@@ -37,7 +35,7 @@ router.get('/', async (req, res) => {
             'Heroku',
             'Raylib'
         ],
-        bio: JSON.parse(bio.rows[0].val)
+        bio: bio[0].val
     }
     res.render('home', content);
 });

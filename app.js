@@ -14,9 +14,9 @@ const startServer = async function() {
 	const app = express();
 	getConfig(app);
 	getDatabase(app);
-	await app.database.clear();
+	//await app.database.clear();
 	await app.database.check();
-
+	
     app.use(express.urlencoded({ extended: false }));
 	app.use(cookieParser());
 

@@ -1,69 +1,43 @@
-const execute = async (app, database) => {
-    console.log('  Checking database...');
+const execute = async (app, db) => {
+    console.log('Checking database...');
+    const collections = app.config.database.collections
 
-    let res;
-    let sql;
-
-    for (let table in app.config.database) {
-        console.log(`    ${table}`);
-        let sql = `
-            SELECT EXISTS (
-                SELECT FROM 
-                    information_schema.tables 
-                WHERE 
-                    table_schema LIKE 'public' AND 
-                    table_type LIKE 'BASE TABLE' AND
-                    table_name = '${table}'
-                LIMIT 
-                    1
-            );
-        `;
-
+    for (let collection in collections) {
+        console.log(`  Checking collection "${collection}"`);
         try {
-            res = await database.query(sql);
+            await db.createCollection(collection);
         } catch (err) {
-            console.error(`Database error: ${err}`);
-            return;
-        }
-        
-        if (!res.rows[0].exists) {
-            console.log(`      ${table} does not exist; creating`);
-            const columns = app.config.database[table].columns.map(x => `${x.name} ${x.type} ${x.limit}`).join(', '); 
-            sql = `CREATE TABLE ${table} ( ${columns});`
-            try {
-                await database.query(sql);
-            } catch (err) {
-                console.error(`Database error: ${err}`);
-                return;
+            if (err.codeName === 'NamespaceExists') {
+                console.log('    exists');
+            } else {
+                console.error(`    Check failed with: ${err.codeName}`);
+                continue;
             }
-            console.log(`      ${table} created`);
-        } else {
-            console.log(`      ${table} exists`);
         }
+        console.log('    created');
 
-        const rowCount = app.config.database[table].rows.length;
-        console.log(`      Checking ${rowCount} row${rowCount == 1 ? "" : "s"}`);
-        for (let row of app.config.database[table].rows) {
-            sql = `SELECT * FROM ${table} WHERE ${row.chck} LIMIT 1;`;
+        for (let document of collections[collection]) {
+            console.log(`    checking document "${document._id}"`);
             try {
-                res = await database.query(sql);
-            } catch (err) {
-                console.error(`Database error: ${err}`);
-                return;
-            }
-            console.log(`        "${row.chck}" result: ${res.rows.length ? "exists" : "missing"}`);
-            if (!res.rows.length) {
-                console.log(`        Creating row for "${row.chck}"`);
-                sql = `INSERT INTO ${table} (${row.cols}) VALUES (${row.vals.map(x => `'${typeof(x) === 'object' ? JSON.stringify(x) : x}'`)});`;
-
-                try {
-                    res = await database.query(sql);
-                } catch (err) {
-                    console.error(`Database error: ${err}`);
-                    return;
+                const check = await db.collection(collection).find({ _id: document._id }).toArray();
+                if (check.length) {
+                    console.log(`      exists`);
+                } else {
+                    console.log(`      missing: attempting to create`);
+                    try {
+                        await db.collection(collection).insertOne(document);
+                    } catch (err) {
+                        console.error(`   check failed with: ${err}`);
+                        continue;
+                    }
+                    console.log('      created');
                 }
-                console.log(`        "${row.chck}" created`);
+            } catch (err) {
+                console.error(`      Check failed with: ${err}`);
+                continue;
             }
+            
+            /**/
         }
     }
 };

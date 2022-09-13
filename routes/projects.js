@@ -7,10 +7,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-    const sql = `SELECT content FROM projects WHERE id = '${req.params.id}' LIMIT 1;`;
-    const ans = await req.app.database.query(sql);
-    if (ans.rows && ans.rows.length) {
-        res.json(JSON.parse(ans.rows[0].content));
+    const ans = await req.app.database.query('projects', {_id: parseInt(req.params.id)});
+    console.log(ans);
+    if (ans.length) {
+        console.log(ans);
+        res.json(ans[0].content);
     } else {
         return res.status(404);
     }

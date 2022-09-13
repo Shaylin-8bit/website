@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const currentHashReq = await req.app.database.query(`SELECT * FROM config WHERE var = 'password';`);
+        const currentHashReq = await req.app.database.query('config', {_id: 'password'});
         const currentHash = currentHashReq.rows[0].val;
         const auth = await bcrypt.compare(req.body.password, currentHash);
         
