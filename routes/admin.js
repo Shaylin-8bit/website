@@ -21,15 +21,15 @@ router.get('/password', (req, res) => {
 
 router.post('/password', async (req, res) => {
     try {
-        const currentHashReq = await req.app.database.query(`SELECT * FROM config WHERE var = 'password' LIMIT 1;`);
-        const currentHash = currentHashReq.rows[0].val;
+        const currentHashReq = await req.app.database.query('config', {'_id': 'password'});
+        const currentHash = currentHashReq[0].val;
         const auth = await bcrypt.compare(req.body.currentPassword, currentHash);
         
         if (auth) {
             if (req.body.newPassword !== req.body.confirm) return res.render('password', {message: 'Passwords do not match!'});
             
             const newHash = await bcrypt.hash(req.body.newPassword, 10);
-            await req.app.database.query(`UPDATE config SET val = '${newHash}' WHERE var = 'password';`);
+            await req.app.database.update('config', {_id: 'password'}, {val: newHash});
             return res.render('password', {message: 'Password change successful!'});
         }
         return res.render('password', {message: 'Invalid current password!'});

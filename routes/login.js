@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const currentHashReq = await req.app.database.query('config', {_id: 'password'});
-        const currentHash = currentHashReq.rows[0].val;
+        const currentHash = currentHashReq[0].val;
         const auth = await bcrypt.compare(req.body.password, currentHash);
         
         if (auth) {

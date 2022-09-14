@@ -11,11 +11,7 @@
 
 1. npm install
 2. create .env with
-  * DB_DATABASE
-  * DB_HOST
-  * DB_PASSWORD
-  * DB_PORT
-  * DB_USER
+  * DB_URL
   * SESSION_TOKEN
 3. npm start
 4. default password is 1234 (Strongly recommend changing this)
