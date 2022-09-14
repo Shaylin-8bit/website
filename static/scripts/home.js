@@ -30,6 +30,9 @@ $(document).ready(function() {
                 const child = $($(projects[i]).children().first());
                 child.html(`<img src="/images/${res.image}"><h3>${res.name}</h3>`);
                 child.attr("href", res.link);
+            },
+            function(err) {
+                console.error('error while fetching project: ', err);
             }
         );
     }
