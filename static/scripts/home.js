@@ -23,7 +23,7 @@ $(document).ready(function() {
 
     $('#main-content').scroll(checkMainSection);
 
-    const projects = $('#projects-wrapper').first().children();
+    const projects = $('#project-subset').first().children();
     for (let i = 0; i < projects.length; i++) {
         $.getJSON(`/projects/${i}`).then(
             function(res) {
@@ -48,6 +48,18 @@ $(document).ready(function() {
         line1.animate({top:   close ? '0%'  :  '17%'  }, 750);
         line2.animate({top:   close ? '0%'  : '-17%'  }, 750);
     });
+
+    $('#left-button').click(
+        function() {
+            console.log('move left');
+        }
+    );
+
+    $('#right-button').click(
+        function() {
+            console.log('move right');
+        }
+    );
 
     $('.project').hover(
         function() {
