@@ -32,6 +32,7 @@ router.get('/', async (req, res) => {
             'Express.js',
             'JQuery',
             'Postgresql',
+            'MongoDB',
             'Heroku',
             'Raylib'
         ],

@@ -263,12 +263,14 @@ blockquote .quote {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    height: 50%;
+    height: 100%;
 }
 
 .tool-wrapper {
     display: inline-table;
     height: 100%;
+    min-height: 1vh;
+    max-height: 5vh;
     margin: 0% 2%;
 }
 
@@ -478,3 +480,10 @@ blockquote .quote {
         font-size: max(2vh, 2vw);
     }
 } 
+
+
+/* Temporary work */
+
+#navigation-button {
+    display: none;
+}
