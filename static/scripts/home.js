@@ -19,35 +19,31 @@ $(document).ready(function() {
         
     };
 
-    checkMainSection();
+    const loadProjects = () => {
+        const projectSubset = $('#active-project-subset');
+        const position = $(projectSubset).index();
 
-    $('#main-content').scroll(checkMainSection);
+        const projects = $(projectSubset).children();
+        for (let i = 0; i < 4; i++) {
+            const projectId = position * 4 + i;
+            const child = $($(projects[i]).children().first());
 
-    const projects = $('#project-subset').first().children();
-    for (let i = 0; i < projects.length; i++) {
-        $.getJSON(`/projects/${i}`).then(
-            function(res) {
-                const child = $($(projects[i]).children().first());
-                child.html(`<img src="/images/${res.image}"><h3>${res.name}</h3>`);
-                child.attr("href", res.link);
-            },
-            function(err) {
-                console.error('error while fetching project: ', err);
+            if (!child.hasClass('loaded')) {
+                $.getJSON(`/projects/${projectId}`).then(
+                    function(res) {
+                        child.html(`<img src="/images/${res.image}"><h3>${res.name}</h3>`);
+                        child.attr("href", res.link);
+                        child.addClass('loaded');
+                    },
+                    function(err) {
+                        const child = $($(projects[i]).children().first());
+                        child.html('Failed to load...');
+                        console.error('error while fetching project: ', err);
+                    }
+                );
             }
-        );
+        }
     }
-
-    $('#navigation-button').click(function() {
-        const line1 = $('#navigation-button-line1');
-        const line2 = $('#navigation-button-line2');
-        const contn = $('#navigation-content');
-        
-        const close = contn.width() > 0;
-
-        contn.animate({width: close ? '0vw' :  '100vw'}, 750);
-        line1.animate({top:   close ? '0%'  :  '17%'  }, 750);
-        line2.animate({top:   close ? '0%'  : '-17%'  }, 750);
-    });
 
     $('#left-button').click(
         function() {
@@ -60,6 +56,20 @@ $(document).ready(function() {
             console.log('move right');
         }
     );
+
+    $('#main-content').scroll(checkMainSection);
+
+    $('#navigation-button').click(function() {
+        const line1 = $('#navigation-button-line1');
+        const line2 = $('#navigation-button-line2');
+        const contn = $('#navigation-content');
+        
+        const close = contn.width() > 0;
+
+        contn.animate({width: close ? '0vw' :  '100vw'}, 750);
+        line1.animate({top:   close ? '0%'  :  '17%'  }, 750);
+        line2.animate({top:   close ? '0%'  : '-17%'  }, 750);
+    });
 
     $('.project').hover(
         function() {
@@ -84,4 +94,7 @@ $(document).ready(function() {
             );
         }
     );
+
+    checkMainSection();
+    loadProjects();
 });

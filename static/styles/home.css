@@ -202,7 +202,7 @@ blockquote .quote {
     margin-top: 7%;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 #left-button {
@@ -231,12 +231,22 @@ blockquote .quote {
     background-color: var(--dark);
 }
 
-#project-subset {
-    color: green;
+#subset-wrapper {
     flex: 8 8 80%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.project-subset {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    flex-shrink: 0;
 }
 
 .project-wrapper {
@@ -445,6 +455,10 @@ blockquote .quote {
     #inner-nav {
         width: 90%;
         height: var(--header-height);
+    }
+    
+    #header-pfp-button {
+        display: none;
     }
 
     #mini-bio p {
