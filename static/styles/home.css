@@ -176,7 +176,6 @@ blockquote {
 }
 
 blockquote .quote {
-    background-color: rgba(12, 12, 12, var(--text-box-opacity));
     margin: 1vh auto;
 }
 
@@ -197,13 +196,57 @@ blockquote .quote {
 }
 
 #projects-wrapper {
-    width: 61.5%;
+    width: 60%;
     height: 40%;
     margin: auto;
     margin-top: 7%;
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#left-button {
+}
+
+#right-button {
+    transform: rotate(180deg);
+}
+
+.project-button {
+    margin-top: 1.5%;
+    height: 90%;
+    flex: 1 1 10%;
+    background: none;
+    background-image: url("/images/arrow.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: var(--dark2);
+    border: 1px solid var(--darkish);
+    border-radius: 5%;
+    opacity: var(--text-box-opacity);
+}
+
+.project-button:hover {
+    background-color: var(--dark);
+}
+
+#subset-wrapper {
+    flex: 8 8 80%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.project-subset {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    flex-shrink: 0;
 }
 
 .project-wrapper {
@@ -229,6 +272,7 @@ blockquote .quote {
     position: absolute;
     transform: translateY(-50%);
     top: 50%;
+    left: 20%;
     margin: 0%;
     width: 100%;
     text-align: center;
@@ -412,6 +456,10 @@ blockquote .quote {
         width: 90%;
         height: var(--header-height);
     }
+    
+    #header-pfp-button {
+        display: none;
+    }
 
     #mini-bio p {
         max-width: 90%;
@@ -424,10 +472,9 @@ blockquote .quote {
         overflow: hidden;
     } 
 
-    .project-wrapper {
-        width: 100%;
-        height: 19%;
-    } 
+    .project-button {
+        display: none;
+    }
 
     .tools-list-wrapper {
         height: 13%;
