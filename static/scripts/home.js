@@ -6,7 +6,10 @@ const scrollToId = (targetId) => {
     );
 };
 
-$(document).ready(function() {
+$(document).ready(async function() {
+    let numProjects = await $.getJSON('/projects/length');
+    numProjects = numProjects.length;
+
     const checkMainSection = () => {
         const mainContent = $('#main-content');
         const opacity = mainContent.scrollTop() / $('#mini-bio').height()
@@ -47,13 +50,54 @@ $(document).ready(function() {
 
     $('#left-button').click(
         function() {
-            console.log('move left');
+            const projectSubset = $('#active-project-subset');
+            const position = $(projectSubset).index();
+            if (position) {
+                $('#subset-wrapper').animate(
+                    {
+                        scrollLeft: `-=${$(projectSubset).width()}px`
+                    },
+                    'fast'
+                );
+                $(projectSubset).removeAttr('id');
+                $($(projectSubset).parent().children()[position-1]).attr('id', 'active-project-subset');
+            }
         }
     );
 
     $('#right-button').click(
         function() {
-            console.log('move right');
+            const scrollRight = (projectSubset) => {
+                $('#subset-wrapper').animate(
+                    {
+                        scrollLeft: `+=${$(projectSubset).width()}px`
+                    },
+                    'fast'
+                );
+            }
+
+            const currentSubset = $('#active-project-subset');
+            const position = $(currentSubset).index();
+            const numSubsets = $(currentSubset).parent().children().length;
+
+            if (position + 1 >= numSubsets) {
+                console.log('one');
+                const newSubset = $(currentSubset).clone(true);
+                const child = newSubset.children().children();
+                child.html('Loading...');
+                child.attr('href', '#');
+                child.removeAttr('target');
+                child.removeClass('loaded');
+                newSubset.attr('id', 'active-project-subset');
+                $(currentSubset).parent().append(newSubset);
+            } else {
+                console.log('two')
+                $($(currentSubset).parent().children()[position+1]).attr('id', 'active-project-subset');
+            }
+            console.log('three');
+            $(currentSubset).removeAttr('id');
+            scrollRight(currentSubset);
+            loadProjects();
         }
     );
 
