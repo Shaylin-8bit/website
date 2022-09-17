@@ -48,7 +48,7 @@ $(document).ready(async function() {
         }
     }
 
-    $('#left-button').click(
+    $('.left-button').click(
         function() {
             const projectSubset = $('#active-project-subset');
             const position = $(projectSubset).index();
@@ -65,7 +65,7 @@ $(document).ready(async function() {
         }
     );
 
-    $('#right-button').click(
+    $('.right-button').click(
         function() {
             const scrollRight = (projectSubset) => {
                 $('#subset-wrapper').animate(
