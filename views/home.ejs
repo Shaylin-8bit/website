@@ -95,40 +95,48 @@
 
                     <section id="projects-display" class="main-section">
                         <div id="projects-wrapper">
-                            <button class="project-button" id="left-button"></button>
+                            <div id="upper-projects-wrapper">
+                                <button class="project-button upper-project-button left-button"></button>
 
-                            <div id="subset-wrapper">
-                                <div class="project-subset" id="active-project-subset">
-                                    <div class="project-wrapper">
-                                        <a href="" target="_blank" class="project">
-                                            Loading...
-                                        </a>
-                                    </div>
+                                <div id="subset-wrapper">
+                                    <div class="project-subset" id="active-project-subset">
+                                        <div class="project-wrapper">
+                                            <a href="" target="_blank" class="project">
+                                                Loading...
+                                            </a>
+                                        </div>
 
-                                    <div class="project-wrapper">
-                                        <a href="" target="_blank" class="project">
-                                            Loading...
-                                        </a>
-                                    </div>
+                                        <div class="project-wrapper">
+                                            <a href="" target="_blank" class="project">
+                                                Loading...
+                                            </a>
+                                        </div>
 
-                                    <div class="project-wrapper">
-                                        <a href="" target="_blank" class="project">
-                                            Loading...
-                                        </a>
-                                    </div>
+                                        <div class="project-wrapper">
+                                            <a href="" target="_blank" class="project">
+                                                Loading...
+                                            </a>
+                                        </div>
 
-                                    <div class="project-wrapper">
-                                        <a href="" target="_blank" class="project">
-                                            Loading...
-                                        </a>
+                                        <div class="project-wrapper">
+                                            <a href="" target="_blank" class="project">
+                                                Loading...
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
+                                    
+                                <button class="project-button upper-project-button right-button"></button>
                             </div>
-                                
-                            <button class="project-button" id="right-button"></button>
+
+                            <div id="lower-projects-wrapper">
+                                <button class="project-button lower-project-button left-button"></button>
+                                <button class="project-button lower-project-button right-button"></button>
+                            </div>
+                            
                         </div>
                         
-                        <div class="tools-list-wrapper">
+                        <div class="tools-list-wrapper" id="language-list">
                             <h2> Languages </h2>
                             <div class="tools-list">
                                 <% for (let i of languages) { %>
@@ -137,7 +145,7 @@
                             </div>
                         </div>
 
-                        <div class="tools-list-wrapper">
+                        <div class="tools-list-wrapper" id="tools-list">
                             <h2> Tools </h2>
                             <div class="tools-list">
                                 <% for (let i of tools) { %>
