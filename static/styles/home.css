@@ -73,7 +73,7 @@ h3 {
 }
 
 .link-button .text {
-    font-size: max(2vw, 2vh);;
+    font-size: min(2vw, 2vh);
     color: var(--light);
 }
 
@@ -197,19 +197,40 @@ blockquote .quote {
 
 #projects-wrapper {
     width: 60%;
-    height: 40%;
+    height: 60%;
     margin: auto;
-    margin-top: 7%;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#upper-projects-wrapper {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
 }
 
-#left-button {
+#lower-projects-wrapper {
+    height: 15%;
+    display: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
 }
 
-#right-button {
+.left-button {
+}
+
+.right-button {
     transform: rotate(180deg);
+}
+
+.project-button.lower-project-button {
+    height: 80%;
+    width: 30%;
 }
 
 .project-button {
@@ -232,7 +253,7 @@ blockquote .quote {
 }
 
 #subset-wrapper {
-    flex: 8 8 80%;
+    flex: 12 12 71.428%;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: hidden;
@@ -269,21 +290,16 @@ blockquote .quote {
 }
 
 .project h3 {
-    position: absolute;
-    transform: translateY(-50%);
-    top: 50%;
-    left: 20%;
-    margin: 0%;
     width: 100%;
     text-align: center;
     font-size: min(2vw, 2vh);
 }
 
 .project img {
-    position: relative;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
+    display: block;
+    margin-top: 4vh;
+    margin-left: auto;
+    margin-right: auto;
     width: min(10vw, 10vh);
     height: min(10vw, 10vh);
 }
@@ -311,11 +327,10 @@ blockquote .quote {
 }
 
 .tool-wrapper {
-    display: inline-table;
-    height: 100%;
+    height: 50%;
     min-height: 1vh;
     max-height: 5vh;
-    margin: 0% 2%;
+    margin: 0% 1%;
 }
 
 
@@ -471,8 +486,16 @@ blockquote .quote {
         margin: auto;
         overflow: hidden;
     } 
-
-    .project-button {
+    
+    #upper-projects-wrapper {
+        height: 85%;
+    }
+    
+    #lower-projects-wrapper {
+        display: flex;
+    }
+    
+    .upper-project-button {
         display: none;
     }
 
@@ -485,6 +508,10 @@ blockquote .quote {
         height: 50%;
         max-width: 20%;
     } 
+
+    #tools-list {
+        display: none;
+    }
 
    .paragraph-wrapper {
         width: 90%;
