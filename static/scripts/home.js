@@ -6,47 +6,60 @@ const scrollToId = (targetId) => {
     );
 };
 
+const checkMainSection = () => {
+    const mainContent = $('#main-content');
+    const opacity = mainContent.scrollTop() / $('#mini-bio').height()
+    const click = opacity > .5 ? 'all' : 'none'
+
+    $('#header-pfp-wrapper').css('opacity', opacity);
+    $('#header-pfp-wrapper').css('pointer-events', click);
+    $('#header-nav').css('opacity', opacity);
+    $('#header-nav').css('pointer-events', click);
+    
+};
+    
+const loadProjects = () => {
+    const projectSubset = $('#active-project-subset');
+    const position = $(projectSubset).index();
+
+    const projects = $(projectSubset).children();
+    for (let i = 0; i < 4; i++) {
+        const projectId = position * 4 + i;
+        const child = $($(projects[i]).children().first());
+
+        if (!child.hasClass('loaded')) {
+            $.getJSON(`/projects/${projectId}`).then(
+                function(res) {
+                    child.html(`<img src="/images/${res.image}"><h3>${res.name}</h3>`);
+                    child.attr("href", res.link);
+                    child.addClass('loaded');
+                },
+                function(err) {
+                    const child = $($(projects[i]).children().first());
+                    child.html('Failed to load...');
+                    console.error('error while fetching project: ', err);
+                }
+            );
+        }
+    }
+};
+
+const loadPageDisplay = (numPages) => {
+    console.log(numPages);
+
+    const first = $('#project-page-display-first');
+    const second = $('#project-page-display-second');
+
+    first.html($('#active-project-subset').index() + 1);
+    second.html(numPages);
+};
+
 $(document).ready(async function() {
     let numProjects = await $.getJSON('/projects/length');
     numProjects = numProjects.length;
-
-    const checkMainSection = () => {
-        const mainContent = $('#main-content');
-        const opacity = mainContent.scrollTop() / $('#mini-bio').height()
-        const click = opacity > .5 ? 'all' : 'none'
-
-        $('#header-pfp-wrapper').css('opacity', opacity);
-        $('#header-pfp-wrapper').css('pointer-events', click);
-        $('#header-nav').css('opacity', opacity);
-        $('#header-nav').css('pointer-events', click);
-        
-    };
-
-    const loadProjects = () => {
-        const projectSubset = $('#active-project-subset');
-        const position = $(projectSubset).index();
-
-        const projects = $(projectSubset).children();
-        for (let i = 0; i < 4; i++) {
-            const projectId = position * 4 + i;
-            const child = $($(projects[i]).children().first());
-
-            if (!child.hasClass('loaded')) {
-                $.getJSON(`/projects/${projectId}`).then(
-                    function(res) {
-                        child.html(`<img src="/images/${res.image}"><h3>${res.name}</h3>`);
-                        child.attr("href", res.link);
-                        child.addClass('loaded');
-                    },
-                    function(err) {
-                        const child = $($(projects[i]).children().first());
-                        child.html('Failed to load...');
-                        console.error('error while fetching project: ', err);
-                    }
-                );
-            }
-        }
-    }
+    let numPages = Math.ceil(numProjects / 4);
+    
+    loadPageDisplay(numPages);
 
     $('.left-button').click(
         function() {
@@ -61,6 +74,7 @@ $(document).ready(async function() {
                 );
                 $(projectSubset).removeAttr('id');
                 $($(projectSubset).parent().children()[position-1]).attr('id', 'active-project-subset');
+                loadPageDisplay(numPages);
             }
         }
     );
@@ -79,25 +93,24 @@ $(document).ready(async function() {
             const currentSubset = $('#active-project-subset');
             const position = $(currentSubset).index();
             const numSubsets = $(currentSubset).parent().children().length;
-
-            if (position + 1 >= numSubsets) {
-                console.log('one');
-                const newSubset = $(currentSubset).clone(true);
-                const child = newSubset.children().children();
-                child.html('Loading...');
-                child.attr('href', '#');
-                child.removeAttr('target');
-                child.removeClass('loaded');
-                newSubset.attr('id', 'active-project-subset');
-                $(currentSubset).parent().append(newSubset);
-            } else {
-                console.log('two')
-                $($(currentSubset).parent().children()[position+1]).attr('id', 'active-project-subset');
+            if (position + 1 < numPages) {
+                if (position + 1 >= numSubsets) {
+                    const newSubset = $(currentSubset).clone(true);
+                    const child = newSubset.children().children();
+                    child.html('Loading...');
+                    child.attr('href', '#');
+                    child.removeAttr('target');
+                    child.removeClass('loaded');
+                    newSubset.attr('id', 'active-project-subset');
+                    $(currentSubset).parent().append(newSubset);
+                } else {
+                    $($(currentSubset).parent().children()[position+1]).attr('id', 'active-project-subset');
+                }
+                $(currentSubset).removeAttr('id');
+                scrollRight(currentSubset);
+                loadProjects();
+                loadPageDisplay(numPages);
             }
-            console.log('three');
-            $(currentSubset).removeAttr('id');
-            scrollRight(currentSubset);
-            loadProjects();
         }
     );
 
@@ -141,4 +154,5 @@ $(document).ready(async function() {
 
     checkMainSection();
     loadProjects();
+    loadPageDisplay(numPages);
 });
