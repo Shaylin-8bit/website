@@ -28,6 +28,13 @@
                     "name": "PN Discord Bot",
                     "link": "https://github.com/Shaylin-8bit/ProjectNU-Bot",
                     "image": "Project Nu.png"
+                },
+
+                {
+                    "_id": 4,
+                    "name": "AOC 2021",
+                    "link": "https://github.com/Shaylin-8bit/advent-of-code",
+                    "image": "Python 3.png"
                 }
             ],
 
