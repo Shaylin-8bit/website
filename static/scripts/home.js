@@ -30,9 +30,13 @@ const loadProjects = () => {
         if (!child.hasClass('loaded')) {
             $.getJSON(`/projects/${projectId}`).then(
                 function(res) {
-                    child.html(`<img src="/images/${res.image}"><h3>${res.name}</h3>`);
-                    child.attr("href", res.link);
-                    child.addClass('loaded');
+                    if (res.name) {
+                        child.html(`<img src="/images/${res.image}"><h3>${res.name}</h3>`);
+                        child.attr("href", res.link);
+                        child.addClass('loaded');
+                    } else {
+                        child.html('');
+                    }
                 },
                 function(err) {
                     const child = $($(projects[i]).children().first());
@@ -45,8 +49,6 @@ const loadProjects = () => {
 };
 
 const loadPageDisplay = (numPages) => {
-    console.log(numPages);
-
     const first = $('#project-page-display-first');
     const second = $('#project-page-display-second');
 
