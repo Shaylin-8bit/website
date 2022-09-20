@@ -304,6 +304,11 @@ blockquote .quote {
     height: min(10vw, 10vh);
 }
 
+#project-page-display {
+    text-align: center;
+    color: var(--light);
+}
+
 .tools-list-wrapper {
     height: 14%;
     width: 60%;

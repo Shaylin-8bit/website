@@ -15,9 +15,8 @@ router.get('/:id', async (req, res) => {
     if (ans.length) {
         res.json(ans[0]);
     } else {
-        return res.status(404);
+        return res.json({}).status(404);
     }
-
 });
 
 module.exports = router;
